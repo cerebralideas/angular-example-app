@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="http://code.angularjs.org/angular-1.0.0rc12.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+    <script type="text/javascript" src="directives.js"></script>
+    <script type="text/javascript" src="services.js"></script>
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="app.css">
+
+    <title>AngularJS Example App</title>
+</head>
+<body>
+<div ng-app="myApp">
+    <div id="app" ng-controller="Ctrlr" class="container">
+        <div class="page-header">
+            <h1>AngularJS Example App</h1>
+        </div>
+        <form name="exampleForm">
+
+            <fieldset class="row-fluid">
+
+                <warning-required form-check="exampleForm"></warning-required>
+                <warning-pattern form-check="exampleForm"></warning-pattern>
+                <warning-date form-check="exampleForm"></warning-date>
+
+                <legend class="span12">User Identification</legend>
+
+                <p class="required span12">Mandatory Fields</p>
+
+                <div class="span5 required">
+                    <label for="firstName">First Name</label>
+                    <input ng-disabled="disable" name="First Name" type="text" id="firstName" ng-model="user.firstName" required>
+                </div>
+
+                <div class="span5 required">
+                    <label for="lastName">Last Name</label>
+                    <input ng-disabled="disable" name="Last Name" type="text" id="lastName" ng-model="user.lastName" required>
+                </div>
+
+                <div class="span5 required">
+                    <label for="sex">Sex</label>
+                    <select ng-disabled="disable" name="Sex" id="sex" ng-model="user.sex"
+                            ng-options="sex for sex in sexes" required>
+                        <option value="">Select Sex</option>
+                    </select>
+                </div>
+
+                <div class="span5 required">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <date-input model="user.dateOfBirth" id="dateOfBirth" name="Date of Birth"
+                            disable="disable" required></date-input>
+                    <p ng-show="invalidDate">Date is not valid</p>
+                </div>
+            </fieldset>
+
+            <fieldset class="row-fluid">
+
+                <legend class="span12">User Address</legend>
+
+                <div class="span5 required">
+                    <label for="streetAddress">Street Address</label>
+                    <input ng-disabled="disable" class="two-thirds" type="text" id="streetAddress" ng-model="user.streetAddress" required>
+                </div>
+
+                <div class="span5 required">
+                    <label for="city">City</label>
+                    <input ng-disabled="disable" type="text" id="city" ng-model="user.city" required>
+                </div>
+
+                <div class="span5 required">
+                    <label for="state">State</label>
+                    <select ng-disabled="disable" id="state" name="state" ng-model="user.state"
+                            ng-options="state.value as state.text for state in states" required>
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+
+                <div class="span5 required">
+                    <label for="zip">Zip</label>
+                    <input ng-disabled="disable" type="text" id="zip" ng-model="user.zip" required>
+                </div>
+
+                <div class="span5 required">
+                    <label for="homePhone">Primary Phone</label>
+                    <phone-number model="user.homePhone" id="homePhone" name="Primary Phone"
+                            required></phone-number>
+                </div>
+
+                <div class="span5">
+                    <label for="workPhone">Work Phone</label>
+                    <phone-number model="user.workPhone" id="workPhone" name="Work Phone" ></phone-number>
+                </div>
+
+            </fieldset>
+
+            <div class="form-actions">
+                <button ng-disabled="exampleForm.$invalid" ng-click="save()"
+                        class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+
+            <pre ng-show="savedData">{{savedData}}</pre>
+        </form>
+    </div>
+</div>
+</body>
+</html>

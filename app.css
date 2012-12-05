@@ -1,0 +1,38 @@
+.container {
+    width: 600px;
+}
+.ui-state-highlight {
+    background-color: #EEEEEE;
+}
+input.ng-invalid-pattern,
+input.ng-invalid-required,
+.uneditable-input.ng-invalid-required,
+input.ng-invalid-maxlength,
+select.ng-invalid-pattern,
+select.ng-invalid-required,
+select.ng-invalid-maxlength,
+input:focus:required:invalid,
+textarea:required:invalid,
+select:required:invalid {
+
+   border-color: #ee5f5b !important;
+}
+.required label {
+    color: #9D1913;
+}
+.required label:after {
+    content: '*';
+    font-weight: 400;
+    padding-left: 5px;
+    font-size: 15px;
+}
+p.required {
+    color: #9D1913;
+    padding-top: 3px;
+}
+p.required:before {
+    content: '*';
+    font-weight: 400;
+    padding-right: 5px;
+    font-size: 12px;
+}
